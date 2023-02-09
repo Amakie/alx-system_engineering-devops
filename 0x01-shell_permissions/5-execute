@@ -1,2 +1,2 @@
-#!/bin/dash
+#!/bin/bash
 chmod -R 100 hello
