@@ -2,7 +2,7 @@
 #script that prints best school 9 times then hi
 
 i=0
-while [[ $i -le 10 ]]
+while [[ $i -lt 10 ]]
 do
 	echo "Best School"
 	if [[ $i -eq 9 ]]
