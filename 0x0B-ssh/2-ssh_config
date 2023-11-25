@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#configured to use the private key
+
+Host *
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
