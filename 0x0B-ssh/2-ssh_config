@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#configured to use the private key
+#configured to use the private key without password
 
 Host *
     IdentityFile ~/.ssh/school
