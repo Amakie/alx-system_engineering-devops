@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 # Script that transfers a file from a client to a server
 
-if [ "$#" -ne 4 ]
-then
-    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"    
-else
-    path_to_file=$1
-    ip=$2
-    username=$3
-    path_ssh_key=$4
-    scp -i "$path_ssh_key" -o StrictHostKeyChecking=no "$path_to_file" "$username@$ip":~/
+#!/usr/bin/env bash
+# Transfers a file from our client to a server
+
+# Check if 4 parameters were passed
+if [ "$#" -ne 4 ]; then
+    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+    exit 1
 fi
+
+# Assign input parameters to variables
+PATH_TO_FILE=$1
+IP=$2
+USERNAME=$3
+PATH_TO_SSH_KEY=$4
+
+# Use scp to transfer the file
+scp -i "$PATH_TO_SSH_KEY" -o StrictHostKeyChecking=no "$PATH_TO_FILE" "$USERNAME@$IP:~/"
