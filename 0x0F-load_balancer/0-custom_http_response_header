@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configures Nginx to have a custom HTTP response
+sudo apt-get update
+sudo apt-get -y install nginx
+#THIS_HOST=$(cat /etc/hostname)
+TO_REPLACE="^\tlocation \/ {$"
+REPLACE_WITH="\tlocation \/ {\n\t\tadd_header X-Served-By $HOSTNAME;\n"
+#sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/.old_default
+sudo sed -i "s/$TO_REPLACE/$REPLACE_WITH/g" /etc/nginx/sites-available/default
+sudo service nginx start
