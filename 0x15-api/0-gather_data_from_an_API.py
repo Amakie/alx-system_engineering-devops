@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Python script that, using this REST API, for a given employee ID, 
+"""Python script that, using this REST API, for a given employee ID,
 returns information about his/her TODO list progress
 """
 if __name__ == "__main__":
 
-    #import modules
-    import sys
+    """import modules"""
     import requests
+    import sys
 
-    #send request
+    """send request"""
     url = "https://jsonplaceholder.typicode.com/"
     user = requests.get(url + "users/{}".format(sys.argv[1])).json()
     todos = requests.get(url + "todos", params={"userId": sys.argv[1]}).json()
